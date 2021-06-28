@@ -119,7 +119,7 @@ def set_style_image_reply(message):
         style_image_path: str = get_path_image_from_message(message)
         style_transfer_model.set_style_img(style_image_path)
         old_style_image_path: str = style_transfer_model.get_style_img_path()
-        if old_style_image_path:
+        if old_style_image_path != 'images/picasso.jpg':
             os.remove(old_style_image_path)
         style_transfer_model.set_style_img_path(style_image_path)
         bot.send_message(message.chat.id, "Изображение сохранено")
